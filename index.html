@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="permissions-policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests; img-src 'self' data: https://hits.sh; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self';">
 <style>
 :root {
   --bg-primary: #ffffff;
@@ -998,7 +1001,7 @@ body {
     <button class="theme-toggle" onclick="toggleTheme()" title="Mudar tema">
       <span id="theme-icon">🌙</span>
     </button>
-    <a href="https://discord.gg/2QDNg8gH7s" class="discord-btn">Entrar no Servidor</a>
+    <a href="https://discord.gg/2QDNg8gH7s" class="discord-btn" target="_blank" rel="noopener noreferrer">Entrar no Servidor</a>
   </div>
 </nav>
 
@@ -1027,7 +1030,7 @@ body {
 
   <div class="hero-buttons">
     <button class="btn-primary" onclick="document.querySelector('#planos').scrollIntoView({behavior:'smooth'})">Ver Planos</button>
-    <a href="https://discord.gg/2QDNg8gH7s" class="btn-secondary">Acessar Loja</a>
+    <a href="https://discord.gg/2QDNg8gH7s" class="btn-secondary" target="_blank" rel="noopener noreferrer">Acessar Loja</a>
   </div>
 </div>
 
@@ -1286,7 +1289,7 @@ body {
     </div>
 
     <p><strong>💎 Tenha um site exclusivo, desenvolvido especialmente para você.</strong><br>Pronto para começar? Solicite seu orçamento e conte-nos como você imagina seu site.</p>
-    <a href="https://discord.gg/2QDNg8gH7s" class="custom-site-cta">🛒 ENCOMENDAR MEU SITE</a>
+    <a href="https://discord.gg/2QDNg8gH7s" class="custom-site-cta" target="_blank" rel="noopener noreferrer">🛒 ENCOMENDAR MEU SITE</a>
   </div>
 </div>
 
@@ -1375,7 +1378,7 @@ body {
         <h4>Servidor Discord</h4>
         <div class="contact-info">discord.gg/2QDNg8gH7s</div>
         <div class="contact-desc">Acesse nosso servidor e abra um ticket na categoria apropriada</div>
-        <a href="https://discord.gg/2QDNg8gH7s" class="contact-link">Entrar Agora</a>
+        <a href="https://discord.gg/2QDNg8gH7s" class="contact-link" target="_blank" rel="noopener noreferrer">Entrar Agora</a>
       </div>
 
       <div class="contact-box">
@@ -1383,7 +1386,7 @@ body {
         <h4>Telefone/WhatsApp</h4>
         <div class="contact-info">(19) 98146-9785</div>
         <div class="contact-desc">Ligue ou envie mensagem via WhatsApp</div>
-        <a href="https://wa.me/5519981469785" class="contact-link">Abrir WhatsApp</a>
+        <a href="https://wa.me/5519981469785" class="contact-link" target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a>
       </div>
     </div>
   </div>
@@ -1424,8 +1427,8 @@ body {
       <div class="footer-col">
         <h4>Contato</h4>
         <ul>
-          <li><a href="https://discord.gg/2QDNg8gH7s">Discord</a></li>
-          <li><a href="https://wa.me/5519981469785">WhatsApp</a></li>
+          <li><a href="https://discord.gg/2QDNg8gH7s" target="_blank" rel="noopener noreferrer">Discord</a></li>
+          <li><a href="https://wa.me/5519981469785" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
           <li>Discord: bzxfpss</li>
           <li>Tel: (19) 98146-9785</li>
         </ul>
