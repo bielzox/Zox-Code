@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #f0f0f0;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border-color: #e5e5e5;
+  --surface-hover: #f9f9f9;
+  --accent-color: #0066ff;
+  --accent-dark: #0052cc;
+  --section-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #252525;
+  --text-primary: #ffffff;
+  --text-secondary: #c0c0c0;
+  --text-muted: #808080;
+  --border-color: #333333;
+  --surface-hover: #2a2a2a;
+  --accent-color: #0066ff;
+  --accent-dark: #0052cc;
+  --section-bg: #1a1a1a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+  background: var(--bg-primary); 
+  color: var(--text-primary);
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar {
+  background: var(--bg-primary);
+  padding: 1rem 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.logo-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: -0.5px;
+}
+
+.nav-center {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-center a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-center a:hover { color: var(--accent-color); }
+
+.nav-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.theme-toggle {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent-color);
+}
+
+.discord-btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.discord-btn:hover { 
+  background: var(--accent-dark);
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.05) 100%);
+  padding: 5rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.7;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2rem 0 2rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 1.1rem 2.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover { 
+  background: var(--accent-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+}
+
+.btn-secondary {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 1.1rem 2.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover { 
+  background: var(--accent-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+}
+
+.section {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.service-card {
+  background: var(--section-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 32px rgba(0, 102, 255, 0.15);
+  border-color: var(--accent-color);
+}
+
+.service-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.service-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.features-section {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(102, 0, 255, 0.08) 100%);
+  border-radius: 12px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.feature-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.feature-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.plans-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.plan-card {
+  background: var(--section-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-card.featured {
+  border-color: var(--accent-color);
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 102, 255, 0.2);
+}
+
+.plan-badge {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.plan-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
+
+.plan-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.3rem;
+}
+
+.plan-price-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.plan-features {
+  list-style: none;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  flex-grow: 1;
+}
+
+.plan-features li {
+  padding: 0.6rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.plan-features li:before {
+  content: "✓";
+  color: #10b981;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.plan-cta {
+  width: 100%;
+  padding: 1rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.plan-cta:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 102, 255, 0.3);
+}
+
+.how-it-works {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 0 auto 1rem;
+}
+
+.step h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.step p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.testimonials {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimonial {
+  background: var(--section-bg);
+  padding: 1.8rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-color);
+  transition: all 0.3s;
+}
+
+.testimonial:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.testimonial-stars {
+  color: #FFB800;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.testimonial-text {
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.faq {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.faq-item {
+  background: var(--section-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.faq-item:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.1);
+}
+
+.faq-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 1.5rem;
+}
+
+.faq-item.active .faq-content {
+  max-height: 300px;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.faq-text {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.partnerships {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(102, 0, 255, 0.15) 100%);
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  border: 2px solid var(--accent-color);
+  margin-bottom: 2rem;
+}
+
+.partnerships h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.partnerships p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.partnership-btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 1.1rem 2.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.partnership-btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+}
+
+.contact-section {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.contact-box {
+  background: var(--section-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.contact-box:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.15);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-box h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.contact-info {
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  word-break: break-all;
+  font-size: 0.95rem;
+}
+
+.contact-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-link:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.footer {
+  background: var(--section-bg);
+  border-top: 2px solid var(--border-color);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.footer-col h4 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover {
+  color: var(--accent-dark);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.social-btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-stats { gap: 1.5rem; }
+  .nav-center { display: none; }
+  .plan-card.featured { transform: scale(1); }
+  .section { padding: 2rem 1rem; }
+  .section-title { font-size: 1.8rem; }
+  .navbar { gap: 0.5rem; }
+}
+</style>
+<title>Zox Code</title>
+</head>
+<body data-theme="light">
+
+<nav class="navbar">
+  <div class="logo-container">
+    <div class="logo-img">
+      <img src="zox-logo.png" alt="Zox Code">
+    </div>
+    <div class="logo-text">Zox Code</div>
+  </div>
+
+  <div class="nav-center">
+    <a href="#servicos">Serviços</a>
+    <a href="#planos">Planos</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contato">Contato</a>
+  </div>
+
+  <div class="nav-right">
+    <button class="theme-toggle" onclick="toggleTheme()" title="Mudar tema">
+      <span id="theme-icon">🌙</span>
+    </button>
+    <a href="https://discord.gg/2QDNg8gH7s" class="discord-btn">Entrar no Servidor</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Zox Code - System</h1>
+  <p>Transforme seu servidor Discord com sistemas avançados, automação completa e suporte profissional. Solução completa para sua comunidade.</p>
+  
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Servidores Ativos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">10K+</div>
+      <div class="stat-label">Usuários Felizes</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">Suporte Premium</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Uptime Garantido</div>
+    </div>
+  </div>
+
+  <div class="hero-buttons">
+    <button class="btn-primary" onclick="document.querySelector('#planos').scrollIntoView({behavior:'smooth'})">Ver Planos</button>
+    <a href="https://discord.gg/2QDNg8gH7s" class="btn-secondary">Acessar Loja</a>
+  </div>
+</div>
+
+<div class="section" id="servicos">
+  <h2 class="section-title">Nossos Serviços</h2>
+  <p class="section-subtitle">Soluções completas e profissionais para sua comunidade Discord e seus servidores</p>
+  
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3>Bots Discord Personalizados</h3>
+      <p>Automação inteligente com sistemas de ticket, logs avançados, SMS, verificação de usuários, painéis customizados e muito mais. Totalmente configurável para suas necessidades.</p>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Configuração Profissional</h3>
+      <p>Instalação completa, configuração de sistemas, personalização conforme sua necessidade. Deixaremos tudo pronto para você começar a utilizar imediatamente.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <h3>Segurança Avançada</h3>
+      <p>Sistema contra hackers, proteção contra raid, validação de membros, logs de segurança. Sua comunidade protegida com tecnologia de ponta.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3>Painéis e Analytics</h3>
+      <p>Painéis customizados, estatísticas em tempo real, contabilidade automática, relatórios detalhados. Saiba exatamente o que acontece em seu servidor.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <h3>Suporte 24/7</h3>
+      <p>Equipe dedicada pronta para ajudar. Manutenção contínua, atualizações regulares e suporte rápido para qualquer dúvida ou problema.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">Recursos Principais</h2>
+  <p class="section-subtitle">Funcionalidades poderosas em todos os nossos planos</p>
+  
+  <div class="features-section">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div class="feature-content">
+          <h4>Sistema de Ticket</h4>
+          <p>Gerenciamento profissional de suportes e solicitações direto no Discord</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">📝</div>
+        <div class="feature-content">
+          <h4>Sistema de Log Completo</h4>
+          <p>Rastreamento detalhado de todas as ações e eventos do servidor</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">💬</div>
+        <div class="feature-content">
+          <h4>Sistema de SMS</h4>
+          <p>Mensagens automáticas personalizadas em diferentes situações</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">🔐</div>
+        <div class="feature-content">
+          <h4>Verificação Avançada</h4>
+          <p>Sistema de verificação de membros com múltiplas camadas</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">⚔️</div>
+        <div class="feature-content">
+          <h4>Proteção Contra Raids</h4>
+          <p>Defesa automatizada contra ataques e invasões</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">🎨</div>
+        <div class="feature-content">
+          <h4>Painéis Customizados</h4>
+          <p>Interface personalizável conforme sua marca e necessidade</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="planos" style="background: var(--bg-secondary);">
+  <h2 class="section-title">Planos Servidor + Bot</h2>
+  <p class="section-subtitle">Escolha o plano perfeito para seu servidor. Servidor adicional +R$ 20,00</p>
+  
+  <div class="plans-container">
+    <div class="plan-card">
+      <div class="plan-name">Plano Básico</div>
+      <div class="plan-price">R$ 29,90</div>
+      <div class="plan-price-sub">1ª vez • R$ 10,00/mês depois</div>
+      
+      <ul class="plan-features">
+        <li>Sistema de Ticket</li>
+        <li>Sistema de Log</li>
+        <li>Sistema de SMS</li>
+        <li>Mensagens Automáticas</li>
+        <li>Bot Personalizado</li>
+        <li>Suporte Padrão</li>
+      </ul>
+      <button class="plan-cta" onclick="window.location.href='https://discord.gg/2QDNg8gH7s'">Detalhes no Discord</button>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-name">Plano Médio</div>
+      <div class="plan-price">R$ 29,90</div>
+      <div class="plan-price-sub">1ª vez • R$ 15,00/mês depois</div>
+      
+      <ul class="plan-features">
+        <li>Tudo do Básico</li>
+        <li>Sistema de Log Completo</li>
+        <li>Verificação de Usuários</li>
+        <li>Proteção Contra Hackers</li>
+        <li>Painéis Customizados</li>
+        <li>Suporte Prioritário</li>
+      </ul>
+      <button class="plan-cta" onclick="window.location.href='https://discord.gg/2QDNg8gH7s'">Detalhes no Discord</button>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-badge">⭐ Mais Popular</div>
+      <div class="plan-name">Plano Pro</div>
+      <div class="plan-price">R$ 49,90</div>
+      <div class="plan-price-sub">1ª vez • R$ 30,00/mês depois</div>
+      
+      <ul class="plan-features">
+        <li>Tudo do Médio</li>
+        <li>Painel de Cargos</li>
+        <li>Painel de Punição</li>
+        <li>Sistema de Contabilidade</li>
+        <li>Painel com Cargo Automático</li>
+        <li>Suporte 24/7</li>
+      </ul>
+      <button class="plan-cta" onclick="window.location.href='https://discord.gg/2QDNg8gH7s'">Detalhes no Discord</button>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-name">Plano FiveM</div>
+      <div class="plan-price">R$ 99,90</div>
+      <div class="plan-price-sub">1ª vez • R$ 30,00/mês depois</div>
+      
+      <ul class="plan-features">
+        <li>Tudo do Pro</li>
+        <li>Sistema de Farm</li>
+        <li>Sistema de Ausência</li>
+        <li>Sistema de Advertência</li>
+        <li>Configurações FiveM</li>
+        <li>Suporte 24/7</li>
+      </ul>
+      <button class="plan-cta" onclick="window.location.href='https://discord.gg/2QDNg8gH7s'">Detalhes no Discord</button>
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 2rem; color: var(--text-secondary); font-size: 0.95rem;">
+    ℹ️ Alterações no bot: R$ 20,00 por mudança | Primeiro pagamento inclui setup e configuração completa
+  </p>
+</div>
+
+<div class="section">
+  <h2 class="section-title">Como Funciona</h2>
+  <p class="section-subtitle">Processo simples em 4 passos</p>
+  
+  <div class="how-it-works">
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Entre no Discord</h4>
+        <p>Acesse nosso servidor e abra um ticket na categoria apropriada</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Escolha Seu Plano</h4>
+        <p>Selecione o plano que melhor se encaixa no seu servidor</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Efetue o Pagamento</h4>
+        <p>Pague através dos métodos disponíveis no Discord</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">4</div>
+        <h4>Configure e Use</h4>
+        <p>Receba seu bot configurado e pronto para usar imediatamente</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">Avaliações de Clientes</h2>
+  <p class="section-subtitle">Veja o que nossos clientes satisfeitos dizem sobre nós</p>
+  
+  <div class="testimonials">
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-text">"Absolutamente incrível! Meu servidor cresceu muito depois de implementar o bot. A equipe é super responsiva e atenciosa. Recomendo muito!"</div>
+        <div class="testimonial-author">João Silva - Owner Servidor RPG</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-text">"Melhor investimento que fiz para meu servidor! Sistema estável, suporte 24/7 de verdade, e eles implementam rápido qualquer customização que peço."</div>
+        <div class="testimonial-author">Carlos Santos - Gerenciador Servidor Gaming</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-text">"Profissionais mesmo! Desde o primeiro contato até a implementação, tudo foi perfeito. O bot funciona sem problemas e o suporte é de primeira qualidade."</div>
+        <div class="testimonial-author">Ana Oliveira - CEO Comunidade Online</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="faq">
+  <h2 class="section-title">Perguntas Frequentes</h2>
+  <p class="section-subtitle">Dúvidas comuns respondidas</p>
+  
+  <div class="faq">
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-header">
+        <span>Como faço para contratar um plano?</span>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-content">
+        <div class="faq-text">É muito simples! Entre em nosso servidor Discord através do link, abra um ticket na categoria apropriada e converse com nosso suporte. Eles guiarão você através de todo o processo de contratação e pagamento.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-header">
+        <span>Qual plano é ideal para começar?</span>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-content">
+        <div class="faq-text">Recomendamos começar com o Plano Básico ou Médio, dependendo do tamanho do seu servidor. Se tiver dúvidas, nossa equipe pode fazer uma análise personalizada e recomendar o melhor plano para você.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-header">
+        <span>Posso fazer alterações após contratar?</span>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-content">
+        <div class="faq-text">Sim! Você pode solicitar customizações e alterações no bot. Cada alteração custa R$ 20,00 e será implementada rapidamente por nossa equipe. Entre em contato através do Discord.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-header">
+        <span>Qual é o tempo de resposta do suporte?</span>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-content">
+        <div class="faq-text">Nos planos com suporte 24/7, respondemos em até 1 hora. Nos demais planos, o tempo de resposta é de até 4 horas em dias úteis. Estamos sempre prontos para ajudar!</div>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-header">
+        <span>Há garantia de uptime do bot?</span>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-content">
+        <div class="faq-text">Sim! Garantimos 99% de uptime. Nossos bots rodam em servidores profissionais e estáveis. Em caso de queda, trabalhamos imediatamente para resolver.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="partnerships">
+    <h3>🤝 Quer Fazer Parceria Conosco?</h3>
+    <p>Temos programas especiais de parceria com bônus e benefícios exclusivos. Se você possui um negócio relacionado ou quer colaborar, estamos abertos a conversas. Entre em contato através do nosso servidor Discord na categoria de parcerias.</p>
+    <button class="partnership-btn" onclick="window.location.href='https://discord.gg/2QDNg8gH7s'">Abrir Ticket de Parceria</button>
+  </div>
+</div>
+
+<div class="section" id="contato">
+  <h2 class="section-title">Entre em Contato</h2>
+  <p class="section-subtitle">Múltiplas formas de nos alcançar - escolha a que preferir</p>
+  
+  <div class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-box">
+        <div class="contact-icon">💬</div>
+        <h4>Discord Direto</h4>
+        <div class="contact-info">bzxfpss</div>
+        <div class="contact-desc">Envie uma mensagem privada para falar com a equipe</div>
+        <button class="contact-link" onclick="alert('Copie o nome de usuário: bzxfpss e abra no Discord')">Copiar Nome</button>
+      </div>
+
+      <div class="contact-box">
+        <div class="contact-icon">🔗</div>
+        <h4>Servidor Discord</h4>
+        <div class="contact-info">discord.gg/2QDNg8gH7s</div>
+        <div class="contact-desc">Acesse nosso servidor e abra um ticket na categoria apropriada</div>
+        <a href="https://discord.gg/2QDNg8gH7s" class="contact-link">Entrar Agora</a>
+      </div>
+
+      <div class="contact-box">
+        <div class="contact-icon">✆</div>
+        <h4>Telefone/WhatsApp</h4>
+        <div class="contact-info">(19) 98146-9785</div>
+        <div class="contact-desc">Ligue ou envie mensagem via WhatsApp</div>
+        <a href="https://wa.me/5519981469785" class="contact-link">Abrir WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-social">
+      <button class="social-btn" onclick="window.location.href='https://discord.gg/2QDNg8gH7s'" title="Discord">💬</button>
+      <button class="social-btn" onclick="window.location.href='https://wa.me/5519981469785'" title="WhatsApp">✆</button>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">Bots Discord</a></li>
+          <li><a href="#servicos">Configuração</a></li>
+          <li><a href="#servicos">Suporte 24/7</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Planos</h4>
+        <ul>
+          <li><a href="#planos">Plano Básico</a></li>
+          <li><a href="#planos">Plano Médio</a></li>
+          <li><a href="#planos">Plano Pro</a></li>
+          <li><a href="#planos">Plano FiveM</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://discord.gg/2QDNg8gH7s">Discord</a></li>
+          <li><a href="https://wa.me/5519981469785">WhatsApp</a></li>
+          <li>Discord: bzxfpss</li>
+          <li>Tel: (19) 98146-9785</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#faq">Perguntas Frequentes</a></li>
+          <li><a href="#planos">Como Funciona</a></li>
+          <li><a href="#contato">Fale Conosco</a></li>
+          <li><a href="#servicos">Nossos Serviços</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Desenvolvido com muito ❤️ por Zox Code</p>
+      <p>Suporte 24/7 garantido | Qualidade premium em todos os serviços</p>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+        Discord: bzxfpss | WhatsApp: (19) 98146-9785 | Servidor: discord.gg/2QDNg8gH7s
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  
+  const icon = document.getElementById('theme-icon');
+  icon.textContent = newTheme === 'light' ? '🌙' : '☀️';
+}
+
+// Restaurar tema salvo
+window.addEventListener('load', function() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const icon = document.getElementById('theme-icon');
+  icon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+});
+</script>
+
+</body>
+</html>
