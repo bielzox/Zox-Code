@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="permissions-policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests; img-src 'self' data: https://hits.sh; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests; img-src 'self' data: https://api.visitorbadge.io; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self';">
 <style>
 :root {
   --bg-primary: #ffffff;
@@ -1476,7 +1476,12 @@ window.addEventListener('load', function() {
   icon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
 
   const visitCounter = document.getElementById('visit-counter');
-  visitCounter.src = 'https://hits.sh/bielzox.github.io-Zox-Code.svg?label=VISITAS&color=0066ff&v=' + Date.now();
+  const updateVisitCounter = function() {
+    visitCounter.src = 'https://api.visitorbadge.io/api/visitors?path=bielzox.github.io%2FZox-Code&label=VISITAS&countColor=%230066ff&v=' + Date.now();
+  };
+
+  updateVisitCounter();
+  window.setInterval(updateVisitCounter, 30000);
 });
 </script>
 
