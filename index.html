@@ -687,6 +687,73 @@ body {
   transform: translateY(-2px);
 }
 
+.custom-site-embed {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.12) 0%, rgba(102, 0, 255, 0.1) 100%);
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.custom-site-embed h3 {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.custom-site-embed > p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto 2rem;
+}
+
+.custom-site-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.custom-site-step {
+  background: var(--section-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.custom-site-step strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.custom-site-step span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.custom-site-cta {
+  display: inline-block;
+  background: var(--accent-color);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.custom-site-cta:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 102, 255, 0.3);
+}
+
 .footer {
   background: var(--section-bg);
   border-top: 2px solid var(--border-color);
@@ -848,8 +915,14 @@ body {
   .plan-card,
   .how-it-works,
   .testimonials,
-  .faq {
+  .faq,
+  .custom-site-embed {
     padding: 1.5rem;
+  }
+
+  .custom-site-steps {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
   .feature-item {
@@ -1163,6 +1236,35 @@ body {
         <div class="testimonial-author">Ana Oliveira - CEO Comunidade Online</div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="custom-site-embed">
+    <h3>🌐 ENCOMENDE SEU SITE</h3>
+    <p><strong>Seu projeto, do seu jeito.</strong><br>Não encontrou exatamente o que procura? Nós criamos um site personalizado de acordo com suas necessidades. Você escolhe o visual, funcionalidades, cores e estilo, e nossa equipe transforma sua ideia em um projeto profissional.</p>
+
+    <div class="custom-site-steps">
+      <div class="custom-site-step">
+        <strong>💡 Conte sua ideia</strong>
+        <span>Explique como você gostaria que seu site fosse.</span>
+      </div>
+      <div class="custom-site-step">
+        <strong>🎨 Escolha o estilo</strong>
+        <span>Defina cores, identidade visual e aparência.</span>
+      </div>
+      <div class="custom-site-step">
+        <strong>⚙️ Escolha as funcionalidades</strong>
+        <span>Adicione os recursos que seu projeto precisa.</span>
+      </div>
+      <div class="custom-site-step">
+        <strong>🚀 Nós desenvolvemos</strong>
+        <span>Criamos seu site de forma personalizada e profissional.</span>
+      </div>
+    </div>
+
+    <p><strong>💎 Tenha um site exclusivo, desenvolvido especialmente para você.</strong><br>Pronto para começar? Solicite seu orçamento e conte-nos como você imagina seu site.</p>
+    <a href="https://discord.gg/2QDNg8gH7s" class="custom-site-cta">🛒 ENCOMENDAR MEU SITE</a>
   </div>
 </div>
 
