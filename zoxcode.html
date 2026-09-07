@@ -754,6 +754,28 @@ body {
   box-shadow: 0 6px 16px rgba(0, 102, 255, 0.3);
 }
 
+.visits-embed {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 0 auto 2rem;
+  max-width: 260px;
+  text-align: center;
+}
+
+.visits-embed p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.7rem;
+}
+
+.visits-embed img {
+  display: block;
+  margin: 0 auto;
+  min-height: 20px;
+}
+
 .footer {
   background: var(--section-bg);
   border-top: 2px solid var(--border-color);
@@ -1367,6 +1389,11 @@ body {
   </div>
 </div>
 
+<div class="visits-embed" aria-label="Contador de visitas do site">
+  <p>👀 Visitas do site</p>
+  <img id="visit-counter" alt="Número de visitas do site">
+</div>
+
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-social">
@@ -1444,6 +1471,9 @@ window.addEventListener('load', function() {
   document.documentElement.setAttribute('data-theme', savedTheme);
   const icon = document.getElementById('theme-icon');
   icon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+  const visitCounter = document.getElementById('visit-counter');
+  visitCounter.src = 'https://hits.sh/bielzox.github.io-Zox-Code.svg?label=VISITAS&color=0066ff&v=' + Date.now();
 });
 </script>
 
