@@ -779,6 +779,128 @@ body {
   min-height: 20px;
 }
 
+.server-clone-embed {
+  background: linear-gradient(135deg, rgba(88, 101, 242, 0.15) 0%, rgba(88, 101, 242, 0.1) 100%);
+  border: 3px solid #5865F2;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.server-clone-embed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #5865F2, #7289DA, #99AAB5);
+}
+
+.server-clone-title {
+  color: #5865F2;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.server-clone-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.server-clone-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clone-features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: left;
+  list-style: none;
+}
+
+.clone-features-list li {
+  background: var(--section-bg);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid #5865F2;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.clone-features-list li::before {
+  content: '✓';
+  color: #43B581;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.server-clone-price {
+  background: linear-gradient(135deg, rgba(88, 101, 242, 0.1) 0%, rgba(88, 101, 242, 0.05) 100%);
+  border: 2px solid #5865F2;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.clone-price-value {
+  color: #5865F2;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.clone-price-label {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.server-clone-cta {
+  display: inline-block;
+  background: #5865F2;
+  color: white;
+  padding: 1.2rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+}
+
+.server-clone-cta:hover {
+  background: #4752C4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+}
+
 .footer {
   background: var(--section-bg);
   border-top: 2px solid var(--border-color);
@@ -941,13 +1063,18 @@ body {
   .how-it-works,
   .testimonials,
   .faq,
-  .custom-site-embed {
+  .custom-site-embed,
+  .server-clone-embed {
     padding: 1.5rem;
   }
 
   .custom-site-steps {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .clone-features-list {
+    grid-template-columns: 1fr;
   }
 
   .feature-item {
@@ -1202,6 +1329,38 @@ body {
   <p style="text-align: center; margin-top: 2rem; color: var(--text-secondary); font-size: 0.95rem;">
     ℹ️ Alterações no bot: R$ 20,00 por mudança | Primeiro pagamento inclui setup e configuração completa
   </p>
+</div>
+
+<div class="section">
+  <div class="server-clone-embed">
+    <div class="server-clone-title">🚀 Clonagem de Servidores</div>
+    <div class="server-clone-subtitle">Servidor recriado de forma rápida, prática e organizada.</div>
+    
+    <div class="server-clone-description">
+      <p>Agora você pode clonar a estrutura do seu servidor Discord por apenas <strong>R$ 10,00</strong>.</p>
+      <p style="margin-top: 0.8rem;">Reproduza a estrutura do servidor com praticidade, economizando tempo e evitando o trabalho de configurar tudo manualmente.</p>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <h4 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">✦ O que você recebe</h4>
+      <ul class="clone-features-list">
+        <li>Estrutura do servidor</li>
+        <li>Categorias e canais</li>
+        <li>Organização da estrutura</li>
+        <li>Processo rápido e prático</li>
+      </ul>
+    </div>
+
+    <h4 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 0.8rem; font-weight: 600;">💰 Apenas R$ 10,00</h4>
+    <div class="server-clone-price">
+      <div class="clone-price-value">R$ 10,00</div>
+      <div class="clone-price-label">Ideal para quem precisa replicar um servidor ou agilizar a configuração de uma nova comunidade</div>
+    </div>
+
+    <p style="color: var(--text-secondary); font-size: 1rem; font-weight: 600; margin-bottom: 2rem;"><strong style="color: var(--text-primary);">Menos trabalho. Mais praticidade.</strong></p>
+    
+    <a href="https://discord.gg/2QDNg8gH7s" class="server-clone-cta" target="_blank" rel="noopener noreferrer">🛒 Adquira agora por apenas R$ 10,00</a>
+  </div>
 </div>
 
 <div class="section">
