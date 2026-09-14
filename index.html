@@ -1626,7 +1626,7 @@ function toggleTheme() {
   localStorage.setItem('theme', newTheme);
   
   const icon = document.getElementById('theme-icon');
-  icon.textContent = newTheme === 'light' ? '🌙' : '☀️';
+  icon.textContent = newTheme === 'light' ? '☾' : '☀︎';
 }
 
 // Restaurar tema salvo
@@ -1634,7 +1634,7 @@ window.addEventListener('load', function() {
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
   const icon = document.getElementById('theme-icon');
-  icon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+  icon.textContent = savedTheme === 'light' ? '☾' : '☀︎';
 
   const visitCounter = document.getElementById('visit-counter');
   const updateVisitCounter = function() {
