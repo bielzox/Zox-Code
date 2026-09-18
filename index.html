@@ -618,6 +618,87 @@ body {
   box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
 }
 
+.support-embed {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(102, 0, 255, 0.15) 100%);
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  border: 2px solid var(--accent-color);
+  margin-bottom: 2rem;
+}
+
+.support-embed-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.2rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent-color), #5865F2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.support-embed h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.support-embed p {
+  color: var(--text-secondary);
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  max-width: 620px;
+}
+
+.support-embed-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.support-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  padding: 1.1rem 2.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.support-btn-ticket {
+  background: var(--accent-color);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+}
+
+.support-btn-ticket:hover {
+  background: var(--accent-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+}
+
+.support-btn-discord {
+  background: #5865F2;
+  color: white;
+  box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+}
+
+.support-btn-discord:hover {
+  background: #4752C4;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+}
+
 .contact-section {
   background: var(--bg-secondary);
   border-radius: 12px;
@@ -1517,6 +1598,18 @@ body {
     <h3>🤝 Quer Fazer Parceria Conosco?</h3>
     <p>Temos programas especiais de parceria com bônus e benefícios exclusivos. Se você possui um negócio relacionado ou quer colaborar, estamos abertos a conversas. Entre em contato através do nosso servidor Discord na categoria de parcerias.</p>
     <button class="partnership-btn" onclick="window.location.href='https://discord.gg/2QDNg8gH7s'">Abrir Ticket de Parceria</button>
+  </div>
+</div>
+
+<div class="section">
+  <div class="support-embed">
+    <div class="support-embed-icon">🎧</div>
+    <h3>Central de Suporte</h3>
+    <p>Ficou com alguma dúvida ou precisa de ajuda? Abra um ticket em nossa central de suporte e nossa equipe irá te atender rapidamente. Se preferir, você também pode falar com a gente direto pelo Discord.</p>
+    <div class="support-embed-buttons">
+      <a class="support-btn support-btn-ticket" href="https://suporte-88uc.onrender.com/" target="_blank" rel="noopener">🎫 Abrir Ticket de Suporte</a>
+      <a class="support-btn support-btn-discord" href="https://discord.gg/2QDNg8gH7s" target="_blank" rel="noopener">💬 Entrar no Discord</a>
+    </div>
   </div>
 </div>
 
