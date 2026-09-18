@@ -1,0 +1,124 @@
+<!--
+  EMBED DE SUPORTE — Zox Code
+  ============================
+  Como usar:
+  1) Copie todo o bloco abaixo (da tag <section> até </section>, incluindo o <style>).
+  2) Cole no seu index.html, de preferência logo ANTES da seção "Entre em Contato"
+     (procure por algo como <section id="contato"> e cole este bloco antes dela).
+  3) Pronto — não precisa de nenhum arquivo externo, é tudo autocontido.
+
+  Cores usadas seguem o tema roxo/azul escuro que já aparece no restante do site
+  (botões, ícones e o fundo escuro). Se quiser ajustar o tom, mude só as variáveis
+  dentro de :root no <style>.
+-->
+
+<style>
+  #zox-suporte {
+    --zox-bg: #0f0f1a;
+    --zox-card: #171728;
+    --zox-border: rgba(139, 92, 246, 0.25);
+    --zox-purple: #8b5cf6;
+    --zox-purple-dark: #6d28d9;
+    --zox-blue: #6366f1;
+    --zox-text: #e5e7eb;
+    --zox-muted: #9ca3af;
+
+    padding: 64px 20px;
+    background: var(--zox-bg);
+    display: flex;
+    justify-content: center;
+  }
+
+  #zox-suporte .zox-suporte-card {
+    max-width: 680px;
+    width: 100%;
+    background: linear-gradient(145deg, var(--zox-card), #12121f);
+    border: 1px solid var(--zox-border);
+    border-radius: 20px;
+    padding: 48px 36px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.12);
+  }
+
+  #zox-suporte .zox-suporte-icone {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--zox-purple), var(--zox-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+  }
+
+  #zox-suporte h2 {
+    color: #fff;
+    font-size: 26px;
+    margin: 0 0 12px;
+  }
+
+  #zox-suporte p {
+    color: var(--zox-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+
+  #zox-suporte .zox-suporte-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  #zox-suporte a.zox-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  #zox-suporte a.zox-btn-primario {
+    background: linear-gradient(135deg, var(--zox-purple), var(--zox-purple-dark));
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(139, 92, 246, 0.35);
+  }
+
+  #zox-suporte a.zox-btn-secundario {
+    background: transparent;
+    color: var(--zox-text);
+    border: 1px solid var(--zox-border);
+  }
+
+  #zox-suporte a.zox-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(139, 92, 246, 0.45);
+  }
+</style>
+
+<section id="zox-suporte">
+  <div class="zox-suporte-card">
+    <div class="zox-suporte-icone">🎧</div>
+    <h2>Central de Suporte</h2>
+    <p>
+      Ficou com alguma dúvida ou precisa de ajuda? Abra um ticket em nossa
+      central de suporte e nossa equipe irá te atender rapidamente.
+      Se preferir, você também pode falar com a gente direto pelo Discord.
+    </p>
+    <div class="zox-suporte-botoes">
+      <a class="zox-btn zox-btn-primario" href="https://suporte-88uc.onrender.com/" target="_blank" rel="noopener">
+        🎫 Abrir Ticket de Suporte
+      </a>
+      <a class="zox-btn zox-btn-secundario" href="https://discord.gg/2QDNg8gH7s" target="_blank" rel="noopener">
+        💬 Entrar no Discord
+      </a>
+    </div>
+  </div>
+</section>
